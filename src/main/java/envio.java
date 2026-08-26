@@ -1,11 +1,18 @@
 public class Envio {
-    public static double calcularCostoEnvio(double importe) {
-        if (importe < 500) {
-            return 100;
-        } else if (importe < 1000) {
-            return 50;
-        } else {
-            return 0;
+
+    private static final double UMBRAL_BAJO = 500;
+    private static final double UMBRAL_ALTO = 1000;
+    private static final double COSTO_BAJO = 100;
+    private static final double COSTO_MEDIO = 50;
+    private static final double COSTO_GRATIS = 0;
+
+    public static double calcularCostoEnvio(double importePedido) {
+        if (importePedido < UMBRAL_BAJO) {
+            return COSTO_BAJO;
         }
+        if (importePedido < UMBRAL_ALTO) {
+            return COSTO_MEDIO;
+        }
+        return COSTO_GRATIS;
     }
 }
