@@ -38,4 +38,21 @@ public class EnvioTest {
     void frontera1000() {
         assertEquals(0, Envio.calcularCostoEnvio(1000.00));
     }
+
+    // Nuevos test
+    @Test
+    void clientePremiumPedidoBajo() {
+        assertEquals(0, Envio.calcularCostoEnvio(400, true));
+    }
+
+    @Test
+    void clientePremiumPedidoMedio() {
+        assertEquals(0, Envio.calcularCostoEnvio(700, true));
+    }
+
+    @Test
+    void clientePremiumPedidoAlto() {
+        assertEquals(0, Envio.calcularCostoEnvio(1200, true));
+    }
+
 }

@@ -15,4 +15,19 @@ public class Envio {
         }
         return COSTO_GRATIS;
     }
+
+    // Cliente Premium
+    public static double calcularCostoEnvio(double importePedido, boolean esPremium) {
+        if (esPremium) {
+            return COSTO_GRATIS;
+        }
+
+        if (importePedido < UMBRAL_BAJO) {
+            return COSTO_BAJO;
+        }
+        if (importePedido < UMBRAL_ALTO) {
+            return COSTO_MEDIO;
+        }
+        return COSTO_GRATIS;
+    }
 }
